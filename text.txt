@@ -1,0 +1,38 @@
+1.  Fondasi & Strategi:
+    a. Tujuan Utama: Meyakinkan perekrut dan manajer teknis bahwa Saya adalah kandidat yang tepat dengan membuktikan keahlian Saya.
+    b. Personal Branding: "Full-Stack Developer". Gunakan palet warna dan tipografi yang konsisten.
+2.  Desain & Pengalaman Pengguna (UX):
+    a. Prinsip Desain: Minimalis, bersih, dan profesional. Fokus utama harus pada proyek Saya, bukan desain yang berlebihan.
+    b. Navigasi: Sederhana dan intuitif.
+    c. Kinerja & Responsivitas: Situs wajib cepat dimuat dan sepenuhnya responsif di perangkat seluler. 
+
+3. Konten CV / Resume (PDF yang Dapat Diunduh)
+    a. Informasi Kontak: Nama lengkap, email profesional, nomor telepon, lokasi (kota & provinsi), dan tautan yang dapat diklik ke profil LinkedIn, instagram, portofolio dan GitHub Saya. 
+    b. Ringkasan Profesional: 3-5 baris "elevator pitch" yang disesuaikan dengan peran yang Saya incar. Sorot pengalaman, keahlian inti, dan satu pencapaian yang terukur.
+    c. Keahlian Teknis: Buat daftar yang dikategorikan dengan jelas (misalnya, Bahasa Pemrograman, Framework, Database, Tools). Hanya cantumkan teknologi yang Saya kuasai dan siap untuk diwawancarai. Hindari bilah peringkat atau bintang.
+    d. Pengalaman Kerja: Gunakan format kronologis terbalik. Untuk setiap posisi, gunakan 3-5 poin yang berfokus pada dampak, bukan hanya tanggung jawab. Terapkan metode STAR (Situation, Task, Action, Result) dan kuantifikasi pencapaian Saya dengan angka (misalnya, "Mengoptimalkan query database, mengurangi waktu muat sebesar 40%").
+    e. Pendidikan & Sertifikasi: Untuk lulusan baru, letakkan di bagian atas dan sertakan IPK.
+
+Berikut adalah Informasi Mengenai Saya:
+a. Informasi Kontak:
+-  Nama Lengkap: Endricho
+-  Email Pofesional: richofolabessy@gmail.com
+-  Nomor telepon: 6285845214967
+-  Lokasi: Pontianak, Kalimantan Barat, Indonesia
+-  LinkedIn: https://linkedin.com/in/endricho-folabessy/, instagram: https://instagram.com/endrichofolabessy/, portofolio: https://efolabessy.app/, github: https://github.com/WageFolabessy
+
+b. Ringkasan Profesional:
+Lulusan Teknik Informatika yang berfokus pada pengembangan full-stack dengan keahlian terbukti dalam membangun dan menerapkan aplikasi web yang kompleks menggunakan Laravel dan React. Berpengalaman dalam merancang arsitektur end-to-end, mulai dari pembuatan RESTful API dengan integrasi pembayaran (Midtrans) dan pencarian optimal (Elasticsearch), hingga membangun antarmuka pengguna yang interaktif dan responsif. Bersemangat untuk menerapkan keterampilan pemecahan masalah dan rekayasa perangkat lunak untuk menciptakan solusi yang efisien dan berdampak.
+
+c. Keahlian Teknis:
+- PHP, Laravel, Javascript, Typescript, Nextjs, MySQL, Git, github
+
+d. Pengalaman Kerja:
+Asisten Laboratorium Komputer | STMIK Pontianak
+September 2021 - Agustus 2025
+
+- Mentorship & Dukungan Teknis: Secara proaktif membimbing dan memberikan dukungan teknis kepada lebih dari 50 mahasiswa dalam tugas pemrograman mereka, memperjelas konsep-konsep kompleks dalam PHP, Laravel, dan JavaScript untuk meningkatkan pemahaman dan penyelesaian tugas mereka.
+
+- Pemecahan Masalah (Troubleshooting): Mengidentifikasi dan memecahkan berbagai masalah coding dan bug yang dihadapi mahasiswa, yang secara efektif mengurangi waktu pengerjaan dan meningkatkan kualitas kode pada proyek-proyek akademik.
+
+- Manajemen Operasional Laboratorium: Bertanggung jawab atas pengelolaan teknis dan operasional laboratorium, memastikan semua perangkat lunak dan perangkat keras berfungsi optimal untuk mendukung lingkungan belajar yang produktif dan bebas hambatan bagi ratusan mahasiswa.
