@@ -1,6 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale } from "@/i18n/config";
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: { lang: Locale };
+}) {
+  const t = await getDictionary(params.lang);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
@@ -10,29 +19,31 @@ export default function Home() {
             <div className="relative w-32 h-32 mx-auto mb-6">
               <Image
                 src="/images/photo.JPG"
-                alt="Foto Endricho"
+                alt={t.common.photoAlt}
                 width={128}
                 height={128}
                 priority
                 className="rounded-full object-cover w-32 h-32 ring-2 ring-blue-600 shadow-sm"
               />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Endricho</h1>
-            <p className="text-xl text-blue-600 mb-6">Full-Stack Developer</p>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              {t.common.name}
+            </h1>
+            <p className="text-xl text-blue-600 mb-6">{t.common.role}</p>
 
             {/* Contact Information */}
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600 mb-4">
               <a
                 href="mailto:richofolabessy@gmail.com"
                 className="hover:text-blue-600 transition-colors"
-                title="Email"
+                title={t.common.emailLabel}
               >
                 richofolabessy@gmail.com
               </a>
               <a
                 href="tel:+6285845214967"
                 className="hover:text-blue-600 transition-colors"
-                title="Telepon"
+                title={t.common.phoneLabel}
               >
                 +6285845214967
               </a>
@@ -41,7 +52,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-600 transition-colors"
-                title="Lokasi"
+                title={t.common.locationLabel}
               >
                 Pontianak, Kalimantan Barat, Indonesia
               </a>
@@ -53,73 +64,65 @@ export default function Home() {
                 href="https://efolabessy.app/"
                 className="text-green-600 hover:text-green-800 transition-colors"
               >
-                Portfolio
+                {t.common.portfolio}
               </a>
               <a
                 href="https://github.com/WageFolabessy"
                 className="text-gray-700 hover:text-gray-900 transition-colors"
               >
-                GitHub
+                {t.common.github}
               </a>
               <a
                 href="https://linkedin.com/in/endricho-folabessy/"
                 className="text-blue-600 hover:text-blue-800 transition-colors"
               >
-                LinkedIn
+                {t.common.linkedin}
               </a>
               <a
                 href="https://instagram.com/endrichofolabessy/"
                 className="text-pink-600 hover:text-pink-800 transition-colors"
               >
-                Instagram
+                {t.common.instagram}
               </a>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Main Content - Single Column Layout */}
+      {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="space-y-8">
           {/* Professional Summary */}
           <section className="bg-white rounded-lg p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">
-              Ringkasan Profesional
+              {t.home.summaryTitle}
             </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Lulusan Teknik Informatika yang berfokus pada pengembangan
-              full-stack dengan keahlian dalam membangun dan menerapkan aplikasi
-              web yang kompleks menggunakan Laravel dan React. Berpengalaman
-              dalam merancang arsitektur end-to-end, mulai dari pembuatan
-              RESTful API dengan integrasi pembayaran (Midtrans) dan pencarian
-              optimal (Elasticsearch), hingga membangun antarmuka pengguna yang
-              interaktif dan responsif. Bersemangat untuk menerapkan
-              keterampilan pemecahan masalah dan rekayasa perangkat lunak untuk
-              menciptakan solusi yang efisien dan berdampak.
-            </p>
+            <p className="text-gray-700 leading-relaxed">{t.home.summary}</p>
           </section>
 
           {/* Technical Skills */}
           <section className="bg-white rounded-lg p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">
-              Keahlian Teknis
+              {t.home.skillsTitle}
             </h2>
             <div className="space-y-4">
               <div>
                 <h3 className="font-semibold text-gray-800 mb-2">
-                  Bahasa Pemrograman:
+                  {t.home.programmingLanguagesLabel}
                 </h3>
-                <p className="text-gray-700">PHP, JavaScript, TypeScript</p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-2">Framework:</h3>
-                <p className="text-gray-700">Laravel, Next.js</p>
+                <p className="text-gray-700">{t.home.programmingLanguages}</p>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-800 mb-2">
-                  Database & Tools:
+                  {t.home.frameworkLabel}
                 </h3>
-                <p className="text-gray-700">MySQL, Git, GitHub</p>
+                <p className="text-gray-700">{t.home.frameworks}</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  {t.home.databaseToolsLabel}
+                </h3>
+                <p className="text-gray-700">{t.home.databaseTools}</p>
               </div>
             </div>
           </section>
@@ -127,53 +130,33 @@ export default function Home() {
           {/* Work Experience */}
           <section className="bg-white rounded-lg p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">
-              Pengalaman Kerja
+              {t.home.workExpTitle}
             </h2>
             <div className="space-y-6">
               <div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Asisten Laboratorium Komputer
+                    {t.home.jobTitle}
                   </h3>
                   <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded mt-1 sm:mt-0">
-                    September 2021 - Agustus 2025
+                    {t.home.dates}
                   </span>
                 </div>
                 <p className="text-blue-600 font-medium mb-4">
-                  STMIK Pontianak
+                  {t.home.company}
                 </p>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2 mt-1">•</span>
-                    <span>
-                      <strong>Mentorship & Dukungan Teknis:</strong> Secara
-                      proaktif membimbing dan memberikan dukungan teknis kepada
-                      lebih dari <strong>50 mahasiswa</strong> dalam tugas
-                      pemrograman mereka, memperjelas konsep-konsep
-                      dalam PHP, Laravel, dan JavaScript untuk meningkatkan
-                      pemahaman dan penyelesaian tugas mereka.
-                    </span>
+                    <span>{t.home.bullet1}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2 mt-1">•</span>
-                    <span>
-                      <strong>Pemecahan Masalah:</strong>{" "}
-                      Mengidentifikasi dan memecahkan berbagai masalah coding
-                      dan bug yang dihadapi mahasiswa, yang secara efektif
-                      mengurangi waktu pengerjaan dan meningkatkan kualitas kode
-                      pada proyek-proyek akademik.
-                    </span>
+                    <span>{t.home.bullet2}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2 mt-1">•</span>
-                    <span>
-                      <strong>Manajemen Operasional Laboratorium:</strong>{" "}
-                      Bertanggung jawab atas pengelolaan teknis dan operasional
-                      laboratorium, memastikan semua perangkat lunak dan
-                      perangkat keras berfungsi optimal untuk mendukung
-                      lingkungan belajar yang produktif dan bebas hambatan bagi{" "}
-                      <strong>ratusan mahasiswa</strong>.
-                    </span>
+                    <span>{t.home.bullet3}</span>
                   </li>
                 </ul>
               </div>
@@ -183,34 +166,36 @@ export default function Home() {
           {/* Education */}
           <section className="bg-white rounded-lg p-6 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">
-              Pendidikan
+              {t.home.educationTitle}
             </h2>
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                Sarjana Komputer
+                {t.home.degree}
               </h3>
-              <p className="text-blue-600 font-medium mb-2">STMIK Pontianak</p>
-              <p className="text-gray-600">
-                Fokus pada pengembangan aplikasi web dan
-                sistem informasi
+              <p className="text-blue-600 font-medium mb-2">
+                {t.home.institution}
               </p>
+              <p className="text-gray-600">{t.home.focus}</p>
               <p className="text-gray-700 mt-2">
-                <span className="font-medium">IPK:</span> 3.41
+                <span className="font-medium">{t.home.gpaLabel}</span>{" "}
+                {t.home.gpaValue}
               </p>
             </div>
           </section>
 
-          {/* Download CV Section */}
+          {/* Print CV Section */}
           <section className="bg-blue-600 rounded-lg p-6 text-white text-center">
-            <h3 className="text-lg font-semibold mb-4">Cetak CV</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t.home.printSectionTitle}
+            </h3>
             <div className="mt-3">
-              <a
-                href="/print"
+              <Link
+                href={`/${params.lang}/print`}
                 target="_blank"
                 className="inline-block bg-transparent border border-white/70 text-white px-6 py-2 rounded-lg font-medium hover:bg-white/10 transition-colors"
               >
-                🖨️ Cetak dari Browser
-              </a>
+                🖨️ {t.common.printFromBrowser}
+              </Link>
             </div>
           </section>
         </div>
@@ -219,31 +204,31 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 mt-12">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="mb-4">© 2025 Endricho. All rights reserved.</p>
+          <p className="mb-4">{t.common.rights}</p>
           <div className="flex justify-center gap-6">
             <a
               href="https://efolabessy.app/"
               className="hover:text-green-400 transition-colors"
             >
-              Portfolio
+              {t.common.portfolio}
             </a>
             <a
               href="https://github.com/WageFolabessy"
               className="hover:text-gray-400 transition-colors"
             >
-              GitHub
+              {t.common.github}
             </a>
             <a
               href="https://linkedin.com/in/endricho-folabessy/"
               className="hover:text-blue-400 transition-colors"
             >
-              LinkedIn
+              {t.common.linkedin}
             </a>
             <a
               href="https://instagram.com/endrichofolabessy/"
               className="hover:text-red-400 transition-colors"
             >
-              Instagram
+              {t.common.instagram}
             </a>
           </div>
         </div>
