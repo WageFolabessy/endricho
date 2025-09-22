@@ -27,14 +27,14 @@ export default function Home() {
                 className="hover:text-blue-600 transition-colors"
                 title="Email"
               >
-                📧 richofolabessy@gmail.com
+                richofolabessy@gmail.com
               </a>
               <a
                 href="tel:+6285845214967"
                 className="hover:text-blue-600 transition-colors"
                 title="Telepon"
               >
-                📱 +6285845214967
+                +6285845214967
               </a>
               <a
                 href="https://maps.google.com/?q=Pontianak, Kalimantan Barat, Indonesia"
@@ -43,7 +43,7 @@ export default function Home() {
                 className="hover:text-blue-600 transition-colors"
                 title="Lokasi"
               >
-                📍 Pontianak, Kalimantan Barat, Indonesia
+                Pontianak, Kalimantan Barat, Indonesia
               </a>
             </div>
 
@@ -87,7 +87,7 @@ export default function Home() {
               Ringkasan Profesional
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Lulusan baru Teknik Informatika yang berfokus pada pengembangan
+              Lulusan Teknik Informatika yang berfokus pada pengembangan
               full-stack dengan keahlian dalam membangun dan menerapkan aplikasi
               web yang kompleks menggunakan Laravel dan React. Berpengalaman
               dalam merancang arsitektur end-to-end, mulai dari pembuatan
@@ -149,7 +149,7 @@ export default function Home() {
                       <strong>Mentorship & Dukungan Teknis:</strong> Secara
                       proaktif membimbing dan memberikan dukungan teknis kepada
                       lebih dari <strong>50 mahasiswa</strong> dalam tugas
-                      pemrograman mereka, memperjelas konsep-konsep kompleks
+                      pemrograman mereka, memperjelas konsep-konsep
                       dalam PHP, Laravel, dan JavaScript untuk meningkatkan
                       pemahaman dan penyelesaian tugas mereka.
                     </span>
@@ -157,7 +157,7 @@ export default function Home() {
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2 mt-1">•</span>
                     <span>
-                      <strong>Pemecahan Masalah (Troubleshooting):</strong>{" "}
+                      <strong>Pemecahan Masalah:</strong>{" "}
                       Mengidentifikasi dan memecahkan berbagai masalah coding
                       dan bug yang dihadapi mahasiswa, yang secara efektif
                       mengurangi waktu pengerjaan dan meningkatkan kualitas kode
@@ -191,7 +191,7 @@ export default function Home() {
               </h3>
               <p className="text-blue-600 font-medium mb-2">STMIK Pontianak</p>
               <p className="text-gray-600">
-                Lulusan baru dengan fokus pada pengembangan aplikasi web dan
+                Fokus pada pengembangan aplikasi web dan
                 sistem informasi
               </p>
               <p className="text-gray-700 mt-2">

@@ -99,14 +99,14 @@ export default function PrintCVPage() {
           </h2>
           <p className="text-gray-800 leading-snug">
             Lulusan Teknik Informatika yang berfokus pada pengembangan
-            full-stack dengan keahlian dalam membangun dan menerapkan aplikasi
-            web yang kompleks menggunakan Laravel dan React. Berpengalaman dalam
-            merancang arsitektur end-to-end, mulai dari pembuatan RESTful API
-            dengan integrasi pembayaran (Midtrans) dan pencarian optimal
-            (Elasticsearch), hingga membangun antarmuka pengguna yang interaktif
-            dan responsif. Bersemangat untuk menerapkan keterampilan pemecahan
-            masalah dan rekayasa perangkat lunak untuk menciptakan solusi yang
-            efisien dan berdampak.
+              full-stack dengan keahlian dalam membangun dan menerapkan aplikasi
+              web yang kompleks menggunakan Laravel dan React. Berpengalaman
+              dalam merancang arsitektur end-to-end, mulai dari pembuatan
+              RESTful API dengan integrasi pembayaran (Midtrans) dan pencarian
+              optimal (Elasticsearch), hingga membangun antarmuka pengguna yang
+              interaktif dan responsif. Bersemangat untuk menerapkan
+              keterampilan pemecahan masalah dan rekayasa perangkat lunak untuk
+              menciptakan solusi yang efisien dan berdampak.
           </p>
         </section>
 
@@ -146,21 +146,27 @@ export default function PrintCVPage() {
             </div>
             <ul className="list-disc pl-5 mt-1.5 space-y-0.5 text-gray-800">
               <li>
-                Mentorship & Dukungan Teknis: Membimbing dan memberikan dukungan
-                teknis kepada lebih dari 50 mahasiswa dalam tugas pemrograman
-                (PHP, Laravel, JavaScript), meningkatkan pemahaman dan
-                keberhasilan penyelesaian tugas.
+                <strong>Mentorship & Dukungan Teknis:</strong> Secara
+                      proaktif membimbing dan memberikan dukungan teknis kepada
+                      lebih dari <strong>50 mahasiswa</strong> dalam tugas
+                      pemrograman mereka, memperjelas konsep-konsep
+                      dalam PHP, Laravel, dan JavaScript untuk meningkatkan
+                      pemahaman dan penyelesaian tugas mereka.
               </li>
               <li>
-                Troubleshooting: Mengidentifikasi serta memperbaiki berbagai
-                masalah coding dan bug, yang berdampak pada berkurangnya waktu
-                pengerjaan dan peningkatan kualitas kode pada proyek akademik.
+                <strong>Pemecahan Masalah:</strong>{" "}
+                      Mengidentifikasi dan memecahkan berbagai masalah coding
+                      dan bug yang dihadapi mahasiswa, yang secara efektif
+                      mengurangi waktu pengerjaan dan meningkatkan kualitas kode
+                      pada proyek-proyek akademik.
               </li>
               <li>
-                Manajemen Operasional: Mengelola aspek teknis-operasional
-                laboratorium untuk memastikan software dan hardware berfungsi
-                optimal, mendukung lingkungan belajar produktif bagi ratusan
-                mahasiswa.
+                <strong>Manajemen Operasional Laboratorium:</strong>{" "}
+                      Bertanggung jawab atas pengelolaan teknis dan operasional
+                      laboratorium, memastikan semua perangkat lunak dan
+                      perangkat keras berfungsi optimal untuk mendukung
+                      lingkungan belajar yang produktif dan bebas hambatan bagi{" "}
+                      <strong>ratusan mahasiswa</strong>.
               </li>
             </ul>
           </div>
