@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale } from "@/i18n/config";
+import RichText from "../components/RichText";
 
 export default async function Home({
   params,
@@ -148,15 +149,15 @@ export default async function Home({
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2 mt-1">•</span>
-                    <span>{t.home.bullet1}</span>
+                    <RichText html={t.home.bullet1} />
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2 mt-1">•</span>
-                    <span>{t.home.bullet2}</span>
+                    <RichText html={t.home.bullet2} />
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2 mt-1">•</span>
-                    <span>{t.home.bullet3}</span>
+                    <RichText html={t.home.bullet3} />
                   </li>
                 </ul>
               </div>

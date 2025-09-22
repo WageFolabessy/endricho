@@ -2,6 +2,7 @@ import Image from "next/image";
 import AutoPrint from "@/components/AutoPrint";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale } from "@/i18n/config";
+import RichText from "../../components/RichText";
 
 export default async function PrintCVPage({
   params,
@@ -130,9 +131,9 @@ export default async function PrintCVPage({
               <span className="text-sm text-gray-700">{t.home.dates}</span>
             </div>
             <ul className="list-disc pl-5 mt-1.5 space-y-0.5 text-gray-800">
-              <li>{t.home.bullet1}</li>
-              <li>{t.home.bullet2}</li>
-              <li>{t.home.bullet3}</li>
+              <li><RichText html={t.home.bullet1} /></li>
+              <li><RichText html={t.home.bullet2} /></li>
+              <li><RichText html={t.home.bullet3} /></li>
             </ul>
           </div>
         </section>

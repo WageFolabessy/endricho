@@ -37,11 +37,11 @@ const en = {
     company: "STMIK Pontianak",
     dates: "September 2021 - August 2025",
     bullet1:
-      "Mentorship & Technical Support: Proactively mentored and provided technical support to over 50 students in their programming assignments, clarifying concepts in PHP, Laravel, and JavaScript to improve understanding and task completion.",
+      "<strong>Mentorship & Technical Support:</strong> Proactively mentored and provided technical support to over <strong>50 students</strong> in their programming assignments, clarifying concepts in PHP, Laravel, and JavaScript to improve understanding and task completion.",
     bullet2:
-      "Problem Solving: Identified and resolved various coding issues and bugs faced by students, effectively reducing work time and improving code quality for academic projects.",
+      "<strong>Problem Solving:</strong> Identified and resolved various coding issues and bugs faced by students, effectively <strong>reducing work time</strong> and improving code quality for academic projects.",
     bullet3:
-      "Laboratory Operations Management: Responsible for the technical and operational management of the laboratory, ensuring all software and hardware function optimally to support a productive and seamless learning environment for hundreds of students.",
+      "<strong>Laboratory Operations Management:</strong> Responsible for the technical and operational management of the laboratory, ensuring all software and hardware function optimally to support a productive and seamless learning environment for <strong>hundreds of students</strong>.",
     educationTitle: "Education",
     degree: "Bachelor of Computer Science",
     institution: "STMIK Pontianak",

@@ -37,11 +37,11 @@ const id = {
     company: "STMIK Pontianak",
     dates: "September 2021 - Agustus 2025",
     bullet1:
-      "Mentorship & Dukungan Teknis: Secara proaktif membimbing dan memberikan dukungan teknis kepada lebih dari 50 mahasiswa dalam tugas pemrograman mereka, memperjelas konsep-konsep dalam PHP, Laravel, dan JavaScript untuk meningkatkan pemahaman dan penyelesaian tugas mereka.",
+      "<strong>Mentorship & Dukungan Teknis:</strong> Secara proaktif membimbing dan memberikan dukungan teknis kepada lebih dari <strong>50 mahasiswa</strong> dalam tugas pemrograman mereka, memperjelas konsep-konsep dalam PHP, Laravel, dan JavaScript untuk meningkatkan pemahaman dan penyelesaian tugas mereka.",
     bullet2:
-      "Pemecahan Masalah: Mengidentifikasi dan memecahkan berbagai masalah coding dan bug yang dihadapi mahasiswa, yang secara efektif mengurangi waktu pengerjaan dan meningkatkan kualitas kode pada proyek-proyek akademik.",
+      "<strong>Pemecahan Masalah:</strong> Mengidentifikasi dan memecahkan berbagai masalah coding dan bug yang dihadapi mahasiswa, yang secara efektif <strong>mengurangi waktu pengerjaan</strong> dan meningkatkan kualitas kode pada proyek-proyek akademik.",
     bullet3:
-      "Manajemen Operasional Laboratorium: Bertanggung jawab atas pengelolaan teknis dan operasional laboratorium, memastikan semua perangkat lunak dan perangkat keras berfungsi optimal untuk mendukung lingkungan belajar yang produktif dan bebas hambatan bagi ratusan mahasiswa.",
+      "<strong>Manajemen Operasional Laboratorium:</strong> Bertanggung jawab atas pengelolaan teknis dan operasional laboratorium, memastikan semua perangkat lunak dan perangkat keras berfungsi optimal untuk mendukung lingkungan belajar yang produktif dan bebas hambatan bagi <strong>ratusan mahasiswa</strong>.",
     educationTitle: "Pendidikan",
     degree: "Sarjana Komputer",
     institution: "STMIK Pontianak",
