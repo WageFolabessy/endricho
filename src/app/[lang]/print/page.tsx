@@ -12,9 +12,10 @@ export const metadata: Metadata = {
 export default async function PrintCVPage({
   params,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }) {
-  const t = await getDictionary(params.lang);
+  const { lang } = await params;
+  const t = await getDictionary(lang);
 
   return (
     <div className="min-h-screen bg-white text-black">

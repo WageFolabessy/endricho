@@ -8,11 +8,12 @@ import JsonLd from "@/components/JsonLd";
 export default async function Home({
   params,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }) {
-  const t = await getDictionary(params.lang);
+  const { lang } = await params;
+  const t = await getDictionary(lang);
   const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
-  const pageUrl = `${siteUrl}/${params.lang}`;
+  const pageUrl = `${siteUrl}/${lang}`;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -210,7 +211,7 @@ export default async function Home({
             </h3>
             <div className="mt-3">
               <Link
-                href={`/${params.lang}/print`}
+                href={`/${lang}/print`}
                 target="_blank"
                 className="inline-block bg-transparent border border-white/70 text-white px-6 py-2 rounded-lg font-medium hover:bg-white/10 transition-colors"
               >

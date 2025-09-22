@@ -14,12 +14,12 @@ const inter = Inter({
 export async function generateMetadata({
   params,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }): Promise<Metadata> {
-  const dict = await getDictionary(params.lang);
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
   const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
-  const currentUrl = `${siteUrl}/${params.lang}`;
-
+  const currentUrl = `${siteUrl}/${lang}`;
   return {
     metadataBase: new URL(siteUrl),
     title: dict.meta.title,
@@ -67,15 +67,16 @@ export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }) {
+  const { lang } = await params;
   return (
-    <html lang={params.lang} className={inter.variable}>
+    <html lang={lang} className={inter.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
