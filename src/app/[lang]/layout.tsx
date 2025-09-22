@@ -17,21 +17,37 @@ export async function generateMetadata({
   params: { lang: Locale };
 }): Promise<Metadata> {
   const dict = await getDictionary(params.lang);
+  const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
+  const currentUrl = `${siteUrl}/${params.lang}`;
+
   return {
+    metadataBase: new URL(siteUrl),
     title: dict.meta.title,
     description: dict.meta.description,
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        "id-ID": `${siteUrl}/id`,
+        "en-US": `${siteUrl}/en`,
+      },
+    },
     openGraph: {
       type: "website",
       locale: dict.meta.ogLocale,
-      url: "https://efolabessy.app",
+      url: currentUrl,
       title: dict.meta.title,
       description: dict.meta.description,
       siteName: dict.meta.siteName,
+      images: [`${siteUrl}/images/photo.JPG`],
     },
     twitter: {
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.description,
+      images: [`${siteUrl}/images/photo.JPG`],
+    },
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION,
     },
     robots: {
       index: true,

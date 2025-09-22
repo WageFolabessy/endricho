@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale } from "@/i18n/config";
 import RichText from "../components/RichText";
+import JsonLd from "@/components/JsonLd";
 
 export default async function Home({
   params,
@@ -10,9 +11,27 @@ export default async function Home({
   params: { lang: Locale };
 }) {
   const t = await getDictionary(params.lang);
+  const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
+  const pageUrl = `${siteUrl}/${params.lang}`;
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: t.common.name,
+          jobTitle: t.common.role,
+          url: pageUrl,
+          image: `${siteUrl}/images/photo.JPG`,
+          sameAs: [
+            "https://efolabessy.app/",
+            "https://github.com/WageFolabessy",
+            "https://linkedin.com/in/endricho-folabessy/",
+            "https://instagram.com/endrichofolabessy/",
+          ],
+        }}
+      />
       {/* Header Section */}
       <header className="bg-white shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-8">
@@ -237,3 +256,6 @@ export default async function Home({
     </div>
   );
 }
+
+export const dynamic = "error";
+export const revalidate = false;

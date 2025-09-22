@@ -3,6 +3,11 @@ import AutoPrint from "@/components/AutoPrint";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale } from "@/i18n/config";
 import RichText from "../../components/RichText";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false, nocache: true },
+};
 
 export default async function PrintCVPage({
   params,
@@ -157,3 +162,6 @@ export default async function PrintCVPage({
     </div>
   );
 }
+
+export const dynamic = "error";
+export const revalidate = false;
