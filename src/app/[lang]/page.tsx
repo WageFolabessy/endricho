@@ -1,20 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale } from "@/i18n/config";
+import { Locale, locales, defaultLocale } from "@/i18n/config";
 import RichText from "../components/RichText";
 import JsonLd from "@/components/JsonLd";
 
 export default async function Home({
   params,
-}: {
-  params: Promise<{ lang: Locale }>;
-}) {
+}: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  const t = await getDictionary(lang);
+  const lc = (locales as readonly string[]).includes(lang) ? (lang as Locale) : defaultLocale;
+  const t = await getDictionary(lc);
   const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
-  const pageUrl = `${siteUrl}/${lang}`;
-  const portfolioPath = lang === "id" ? `/${lang}/portofolio` : `/${lang}/portfolio`;
+  const pageUrl = `${siteUrl}/${lc}`;
+  const portfolioPath = lc === "id" ? `/${lc}/portofolio` : `/${lc}/portfolio`;
 
   return (
     <div className="min-h-screen bg-gray-50">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/app/globals.css";
-import { Locale, locales } from "@/i18n/config";
+import { Locale, locales, defaultLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 
@@ -14,12 +14,13 @@ const inter = Inter({
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const dict = await getDictionary(lang);
+  const lc = (locales as readonly string[]).includes(lang) ? (lang as Locale) : defaultLocale;
+  const dict = await getDictionary(lc);
   const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
-  const currentUrl = `${siteUrl}/${lang}`;
+  const currentUrl = `${siteUrl}/${lc}`;
   return {
     metadataBase: new URL(siteUrl),
     title: dict.meta.title,
@@ -63,26 +64,17 @@ export async function generateMetadata({
   };
 }
 
-export function generateStaticParams() {
-  return locales.map((lang) => ({ lang }));
-}
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#1e40af",
-};
-
 export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const lc = (locales as readonly string[]).includes(lang) ? (lang as Locale) : defaultLocale;
   return (
-    <html lang={lang} className={inter.variable}>
+    <html lang={lc} className={inter.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

@@ -1,21 +1,18 @@
 import Image from "next/image";
 import AutoPrint from "@/components/AutoPrint";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale } from "@/i18n/config";
+import { Locale, locales, defaultLocale } from "@/i18n/config";
 import RichText from "../../components/RichText";
 import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  robots: { index: false, follow: false, nocache: true },
-};
 
 export default async function PrintCVPage({
   params,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params;
-  const t = await getDictionary(lang);
+  const { lang } = await params; // await params
+  const lc = (locales as readonly string[]).includes(lang) ? (lang as Locale) : defaultLocale;
+  const t = await getDictionary(lc);
 
   return (
     <div className="min-h-screen bg-white text-black">
@@ -163,6 +160,10 @@ export default async function PrintCVPage({
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false, nocache: true },
+};
 
 export const dynamic = "error";
 export const revalidate = false;

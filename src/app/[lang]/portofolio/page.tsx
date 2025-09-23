@@ -1,11 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/data/projects";
-import { Locale } from "@/i18n/config";
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 
-type Params = Promise<{ lang: Locale }>;
+type Params = Promise<{ lang: string }>;
 
 const THUM_TOKENS: Record<string, string> = {
   "ocs.efolabessy.app": "75236-1758615824516-c70fa315a2659b2bc9520f3cdc368228",
@@ -146,10 +145,13 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
       <header className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="flex items-start gap-4">
-            <img
+            <Image
               src="/images/gasnative.png"
               alt="GAS Native"
+              width={64}
+              height={64}
               className="w-16 h-16 rounded-md object-contain ring-1 ring-gray-200 bg-white"
+              priority
             />
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Selamat datang di GAS Native!</h1>
@@ -401,10 +403,7 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
   );
 }
 
-export async function generateMetadata({
-  params,
-}: { params: Promise<{ lang: Locale }>; }): Promise<Metadata> {
-  const { lang } = await params;
+export async function generateMetadata(): Promise<Metadata> {
   const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
   const currentUrl = `${siteUrl}/id/portofolio`;
   return {
