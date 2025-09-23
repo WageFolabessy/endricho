@@ -4,6 +4,39 @@ import { Locale } from "@/i18n/config";
 
 type Params = Promise<{ lang: Locale }>;
 
+const THUM_TOKENS: Record<string, string> = {
+  "ocs.efolabessy.app": "75236-1758615824516-c70fa315a2659b2bc9520f3cdc368228",
+  "cis.efolabessy.app": "75236-1758616161128-a2d381d6df58d216fb863a375bb24ba5",
+  "lis.efolabessy.app": "75236-1758616198483-facf89098ac438d06ee8c5b7c7bd278b",
+  "admin.ocs.efolabessy.app": "75236-1758616243962-e8f815c9c59f650d97aa8538148813d7",
+};
+
+function thumbFor(href: string) {
+  try {
+    const u = new URL(href);
+    const token = THUM_TOKENS[u.hostname];
+    if (token) return `https://image.thum.io/get/auth/${token}/${href}`;
+  } catch {}
+  return `https://image.thum.io/get/auth/${THUM_TOKENS["ocs.efolabessy.app"]}/${href}`;
+}
+
+function hostOf(href: string) {
+  try {
+    const h = new URL(href).hostname;
+    return h.replace(/^www\./, "");
+  } catch {
+    return href;
+  }
+}
+
+function brandOfRepo(href: string) {
+  const h = hostOf(href);
+  if (h.includes("github.com")) return "GitHub";
+  if (h.includes("gitlab.com")) return "GitLab";
+  if (h.includes("bitbucket.org")) return "Bitbucket";
+  return "Repository";
+}
+
 function findByIdTitle(idTitle: string) {
   const p = projects.find((p) => p.title.id === idTitle);
   if (!p) throw new Error(`Project not found: ${idTitle}`);
@@ -18,17 +51,57 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
   const library = findByIdTitle("Sistem Informasi Perpustakaan");
 
   const LinkGroup = ({ demos, repos }: { demos: string[]; repos: string[] }) => (
-    <div className="flex flex-wrap gap-3 text-sm">
-      {demos.map((d) => (
-        <a key={d} href={d} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
-          Demo
-        </a>
-      ))}
-      {repos.map((r) => (
-        <a key={r} href={r} target="_blank" rel="noopener noreferrer" className="text-gray-800 underline">
-          Repository
-        </a>
-      ))}
+    <div className="space-y-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        {demos.map((d) => (
+          <a
+            key={d}
+            href={d}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Buka demo ${hostOf(d)}`}
+            title={`Buka demo: ${d}`}
+            className="group relative block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          >
+            <img
+              src={thumbFor(d)}
+              alt={`Pratinjau demo: ${d}`}
+              loading="lazy"
+              decoding="async"
+              className="w-full object-cover bg-gray-100 transition-transform duration-300 group-hover:scale-105"
+              style={{ aspectRatio: "16 / 9" }}
+            />
+            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
+            <div className="absolute inset-x-2 bottom-2 flex items-center justify-between gap-2">
+              <span className="px-2 py-0.5 rounded bg-black/60 text-white text-xs font-medium backdrop-blur-sm">
+                {hostOf(d)}
+              </span>
+              <span className="rounded-md bg-white/95 text-gray-900 px-2.5 py-1.5 text-xs font-semibold shadow-sm ring-1 ring-black/10">
+                Buka Demo
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {repos.map((r) => (
+          <a
+            key={r}
+            href={r}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Repository ${brandOfRepo(r)}`}
+            title={r}
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-gray-50 hover:bg-gray-100 text-gray-800 ring-1 ring-gray-200 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          >
+            <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-white ring-1 ring-gray-200">
+              {brandOfRepo(r)}
+            </span>
+            <span className="text-sm font-medium">Buka Repo ↗</span>
+          </a>
+        ))}
+      </div>
     </div>
   );
 
@@ -45,7 +118,7 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
 
       <main className="max-w-4xl mx-auto px-4 py-8 space-y-10">
         {/* User Frontend */}
-        <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900">
+        <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900 space-y-4">
           <h2 className="text-2xl font-semibold mb-1">{user.title.id}</h2>
           <LinkGroup demos={user.demos} repos={user.repos} />
 
@@ -97,7 +170,7 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
         </article>
 
         {/* Admin Panel */}
-        <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900">
+        <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900 space-y-4">
           <h2 className="text-2xl font-semibold mb-1">{admin.title.id}</h2>
           <LinkGroup demos={admin.demos} repos={admin.repos} />
 
@@ -145,7 +218,7 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
         </article>
 
         {/* Church IS */}
-        <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900">
+        <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900 space-y-4">
           <h2 className="text-2xl font-semibold mb-1">{church.title.id}</h2>
           <LinkGroup demos={church.demos} repos={church.repos} />
 
@@ -192,7 +265,7 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
         </article>
 
         {/* Library IS */}
-        <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900">
+        <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900 space-y-4">
           <h2 className="text-2xl font-semibold mb-1">{library.title.id}</h2>
           <LinkGroup demos={library.demos} repos={library.repos} />
 
@@ -245,7 +318,12 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
         </article>
 
         <div className="text-center">
-          <Link href="/id" className="text-blue-600 underline">Kembali ke Beranda</Link>
+          <Link
+            href="/id"
+            className="inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-blue-700 ring-1 ring-blue-200 hover:bg-blue-50 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          >
+            Kembali ke Beranda
+          </Link>
         </div>
       </main>
     </div>
