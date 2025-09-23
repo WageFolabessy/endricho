@@ -52,7 +52,7 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
 
   const LinkGroup = ({ demos, repos }: { demos: string[]; repos: string[] }) => (
     <div className="space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
         {demos.map((d) => (
           <a
             key={d}
@@ -72,11 +72,11 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
               style={{ aspectRatio: "16 / 9" }}
             />
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
-            <div className="absolute inset-x-2 bottom-2 flex items-center justify-between gap-2">
-              <span className="px-2 py-0.5 rounded bg-black/60 text-white text-xs font-medium backdrop-blur-sm">
+            <div className="absolute inset-x-0 bottom-0 p-3 flex items-center justify-between gap-2">
+              <span className="px-2 py-1 rounded bg-black/60 text-white text-xs font-medium backdrop-blur-sm">
                 {hostOf(d)}
               </span>
-              <span className="rounded-md bg-white/95 text-gray-900 px-2.5 py-1.5 text-xs font-semibold shadow-sm ring-1 ring-black/10">
+              <span className="rounded-md bg-blue-600 text-white px-3 py-1.5 text-xs font-semibold shadow-sm ring-1 ring-blue-600/20 group-hover:bg-blue-700">
                 Buka Demo
               </span>
             </div>
@@ -173,6 +173,14 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
         <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900 space-y-4">
           <h2 className="text-2xl font-semibold mb-1">{admin.title.id}</h2>
           <LinkGroup demos={admin.demos} repos={admin.repos} />
+          {/* Login Admin (ID) */}
+          <section className="mt-2">
+            <h3 className="text-lg font-semibold">Login Admin</h3>
+            <div className="mt-2 rounded-md bg-blue-50 text-blue-900 p-3 text-sm">
+              <p><span className="font-medium">Email:</span> admin@admin.com</p>
+              <p><span className="font-medium">Kata sandi:</span> password</p>
+            </div>
+          </section>
 
           <section className="mt-4 space-y-2">
             <h3 className="text-lg font-semibold">Deskripsi</h3>
@@ -221,6 +229,15 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
         <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900 space-y-4">
           <h2 className="text-2xl font-semibold mb-1">{church.title.id}</h2>
           <LinkGroup demos={church.demos} repos={church.repos} />
+          {/* Login Admin (ID) */}
+          <section className="mt-2">
+            <h3 className="text-lg font-semibold">Login Admin</h3>
+            <div className="mt-2 rounded-md bg-blue-50 text-blue-900 p-3 text-sm">
+              <p><span className="font-medium">Masuk ke:</span> /admin/login</p>
+              <p><span className="font-medium">Username:</span> admin</p>
+              <p><span className="font-medium">Kata sandi:</span> password</p>
+            </div>
+          </section>
 
           <section className="mt-4 space-y-2">
             <h3 className="text-lg font-semibold">Deskripsi</h3>
@@ -268,6 +285,15 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
         <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900 space-y-4">
           <h2 className="text-2xl font-semibold mb-1">{library.title.id}</h2>
           <LinkGroup demos={library.demos} repos={library.repos} />
+          {/* Login Admin (ID) */}
+          <section className="mt-2">
+            <h3 className="text-lg font-semibold">Login Admin</h3>
+            <div className="mt-2 rounded-md bg-blue-50 text-blue-900 p-3 text-sm">
+              <p><span className="font-medium">Masuk ke:</span> /admin/login</p>
+              <p><span className="font-medium">NIP:</span> 123456</p>
+              <p><span className="font-medium">Kata sandi:</span> password</p>
+            </div>
+          </section>
 
           <section className="mt-4 space-y-2">
             <h3 className="text-lg font-semibold">Deskripsi</h3>
