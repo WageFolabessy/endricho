@@ -1,4 +1,4 @@
-# Endricho — Multilingual Portfolio (Next.js 15, App Router)
+# CV/Portfolio — Multilingual Portfolio
 
 CV/Portfolio website with two languages (id/en), print-friendly layout, and SEO ready. Built with Next.js App Router, React 19, and Tailwind CSS v4.
 
