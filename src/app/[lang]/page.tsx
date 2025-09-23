@@ -14,6 +14,7 @@ export default async function Home({
   const t = await getDictionary(lang);
   const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
   const pageUrl = `${siteUrl}/${lang}`;
+  const portfolioPath = lang === "id" ? `/${lang}/portofolio` : `/${lang}/portfolio`;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -81,12 +82,12 @@ export default async function Home({
 
             {/* Social Links */}
             <div className="flex justify-center gap-6">
-              <a
-                href="https://efolabessy.app/"
+              <Link
+                href={portfolioPath}
                 className="text-green-600 hover:text-green-800 transition-colors"
               >
                 {t.common.portfolio}
-              </a>
+              </Link>
               <a
                 href="https://github.com/WageFolabessy"
                 className="text-gray-700 hover:text-gray-900 transition-colors"
