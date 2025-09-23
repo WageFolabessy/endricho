@@ -67,6 +67,12 @@ export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1e40af",
+};
+
 export default async function RootLayout({
   children,
   params,

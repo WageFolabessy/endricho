@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { projects } from "@/data/projects";
 import { Locale } from "@/i18n/config";
+import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 
 type Params = Promise<{ lang: Locale }>;
 
@@ -50,6 +53,8 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
   const church = findByIdTitle("Sistem Informasi Gereja");
   const library = findByIdTitle("Sistem Informasi Perpustakaan");
 
+  const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
+
   const LinkGroup = ({ demos, repos }: { demos: string[]; repos: string[] }) => (
     <div className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
@@ -63,13 +68,14 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
             title={`Buka demo: ${d}`}
             className="group relative block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           >
-            <img
+            <Image
               src={thumbFor(d)}
               alt={`Pratinjau demo: ${d}`}
+              width={1280}
+              height={720}
               loading="lazy"
-              decoding="async"
+              sizes="(min-width: 1024px) 640px, 100vw"
               className="w-full object-cover bg-gray-100 transition-transform duration-300 group-hover:scale-105"
-              style={{ aspectRatio: "16 / 9" }}
             />
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-3 flex items-center justify-between gap-2">
@@ -107,6 +113,36 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": `${siteUrl}/#website`,
+              url: siteUrl,
+              name: "Portofolio Endricho",
+              inLanguage: "id-ID",
+              publisher: { "@id": `${siteUrl}/#organization` },
+            },
+            {
+              "@type": "Organization",
+              "@id": `${siteUrl}/#organization`,
+              name: "GAS Native",
+              url: siteUrl,
+              logo: { "@type": "ImageObject", url: `${siteUrl}/images/gasnative.png` },
+              image: `${siteUrl}/images/gasnative.png`,
+              sameAs: [
+                "https://efolabessy.app/",
+                "https://github.com/WageFolabessy",
+                "https://linkedin.com/in/endricho-folabessy/",
+                "https://instagram.com/endrichofolabessy/",
+              ],
+            },
+          ],
+        }}
+      />
+
       <header className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="flex items-start gap-4">
@@ -363,6 +399,34 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
       </main>
     </div>
   );
+}
+
+export async function generateMetadata({
+  params,
+}: { params: Promise<{ lang: Locale }>; }): Promise<Metadata> {
+  const { lang } = await params;
+  const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
+  const currentUrl = `${siteUrl}/id/portofolio`;
+  return {
+    title: "Portofolio — Endricho",
+    description:
+      "Proyek terpilih: e‑commerce (user/admin), Sistem Informasi Gereja, dan Perpustakaan. Laravel + React dengan auth, pembayaran, dan real‑time yang andal.",
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        "id-ID": currentUrl,
+        "en-US": `${siteUrl}/en/portfolio`,
+      },
+    },
+    openGraph: {
+      type: "website",
+      url: currentUrl,
+      title: "Portofolio — Endricho",
+      description:
+        "Proyek terpilih: e‑commerce, Sistem Informasi Gereja, dan Perpustakaan.",
+      images: [`${siteUrl}/images/photo.JPG`],
+    },
+  };
 }
 
 export const dynamic = "error";
