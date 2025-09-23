@@ -50,7 +50,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           <LinkGroup demos={user.demos} repos={user.repos} />
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">1) Title & Problem Statement</h3>
+            <h3 className="text-lg font-semibold">Description</h3>
             <p className="leading-relaxed">
               Build a fast, responsive, and secure e‑commerce frontend for browsing, cart, checkout, Midtrans payments, and order dashboard, tightly integrated with an existing Laravel backend.
             </p>
@@ -60,7 +60,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           </section>
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">2) Tech Stack & Rationale</h3>
+            <h3 className="text-lg font-semibold">Tech Stack</h3>
             <ul className="list-disc pl-6 space-y-1">
               <li>React 18 + Vite, React Router DOM v7</li>
               <li>React Context API for global state (auth/cart/notifications)</li>
@@ -86,7 +86,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
               <li>Measured persistence (minimal token + cart) and resync post-login.</li>
               <li>Safe UX: loading during session verification, disabled actions when invalid.</li>
             </ul>
-            <p className="font-medium">Results:</p>
+            <h3 className="text-lg font-semibold">Results</h3>
             <ul className="list-disc pl-6 space-y-1">
               <li>Fast, consistent mobile experience.</li>
               <li>Reliable Midtrans payment flow with clean callbacks.</li>
@@ -101,7 +101,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           <LinkGroup demos={admin.demos} repos={admin.repos} />
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">1) Title & Problem Statement</h3>
+            <h3 className="text-lg font-semibold">Description</h3>
             <p className="leading-relaxed">
               Build a fast, responsive e‑commerce admin dashboard to manage products, categories, orders, shipping, payments, users, and admins. The core problem is centralizing operations in a secure, admin‑friendly interface integrated with a Laravel + Sanctum backend for authentication and data management.
             </p>
@@ -111,7 +111,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           </section>
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">2) Tech Stack & Rationale</h3>
+            <h3 className="text-lg font-semibold">Tech Stack</h3>
             <ul className="list-disc pl-6 space-y-1">
               <li>React 18 + Vite, React Router DOM v7</li>
               <li>React Router DOM — client-side routing with protected routes for admin area.</li>
@@ -122,8 +122,8 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           </section>
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">3) Challenges & Solutions</h3>
-            <h4 className="font-medium">Challenge 1 — Admin Auth + Protected Routes (Sanctum, CSRF, Expired Token)</h4>
+            <h3 className="text-lg font-semibold">Challenges & Solutions</h3>
+            <h4 className="font-medium">1) Admin Auth + Protected Routes (Sanctum, CSRF, Expired Token)</h4>
             <p className="font-medium">Problem:</p>
             <ul className="list-disc pl-6 space-y-1">
               <li>Proper credentials/CSRF/CORS setup with Laravel Sanctum.</li>
@@ -140,6 +140,11 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
               <li>Reliable and secure login/logout flow.</li>
               <li>Eliminated “stale UI sessions”; fewer operational errors and better UX.</li>
             </ul>
+            <h3 className="text-lg font-semibold">Results</h3>
+            <ul className="list-disc pl-6 space-y-1">
+              <li>Admin panel fully functional with real data.</li>
+              <li>Secure and efficient admin operations.</li>
+            </ul>
           </section>
         </article>
 
@@ -149,7 +154,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           <LinkGroup demos={church.demos} repos={church.repos} />
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">1) Title & Problem Statement</h3>
+            <h3 className="text-lg font-semibold">Description</h3>
             <p className="leading-relaxed">
               Provide a church portal for easy access to devotionals, service schedules, bulletins (PDF), liturgy (PDF), and church information, with an efficient admin panel as data grows.
             </p>
@@ -159,7 +164,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           </section>
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">2) Tech Stack & Rationale</h3>
+            <h3 className="text-lg font-semibold">Tech Stack</h3>
             <ul className="list-disc pl-6 space-y-1">
               <li>Laravel 12, Eloquent, Multi-Guard, Storage (public), Broadcasting (Pusher), MySQL.</li>
               <li>Blade, Bootstrap 5.3, jQuery + DataTables, Summernote, SweetAlert2, Web Speech API, Vite, Laravel Echo + Pusher.</li>
@@ -181,7 +186,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
               <li>Eager loading; DB indexes on frequent filter/sort columns.</li>
               <li>Responsive UX with loading/feedback.</li>
             </ul>
-            <p className="font-medium">Impact:</p>
+            <h3 className="text-lg font-semibold">Results</h3>
             <ul className="list-disc pl-6 space-y-1">
               <li>Improved accessibility (TTS, voice nav).</li>
               <li>Efficient admin operations; fewer input errors.</li>
@@ -196,7 +201,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           <LinkGroup demos={library.demos} repos={library.repos} />
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">1) Title & Problem Statement</h3>
+            <h3 className="text-lg font-semibold">Description</h3>
             <p className="leading-relaxed">
               Digitalize school library processes for catalog, reservations, loans/returns, and fines—reducing manual errors and speeding up operations.
             </p>
@@ -206,7 +211,7 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           </section>
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">2) Tech Stack & Rationale</h3>
+            <h3 className="text-lg font-semibold">Tech Stack</h3>
             <ul className="list-disc pl-6 space-y-1">
               <li>Laravel 12 with secure auth, multi-roles, and relational ORM.</li>
               <li>Blade + Bootstrap 5 + Icons; Tailwind CSS 4 for granular styling.</li>
@@ -217,21 +222,29 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
           </section>
 
           <section className="mt-4 space-y-2">
-            <h3 className="text-lg font-semibold">3) Challenges & Solutions (Technical)</h3>
-            <h4 className="font-medium">Challenge 1: Multi-form validation for book copies</h4>
+            <h3 className="text-lg font-semibold">Challenges & Solutions</h3>
+            <h4 className="font-medium">1) Multi-form validation for book copies</h4>
             <ul className="list-disc pl-6 space-y-1">
               <li>Named Error Bags per action/form; dynamic keys (e.g., <code>updateCopy_{"{"}id{"}"}</code>).</li>
               <li>Clear UX; changes are atomic per copy.</li>
             </ul>
-            <h4 className="font-medium">Challenge 2: Date-range filtering + Excel export</h4>
+            <h4 className="font-medium">2) Date-range filtering + Excel export</h4>
             <ul className="list-disc pl-6 space-y-1">
               <li>Server validation for start_date ≤ end_date; efficient queries with whereBetween.</li>
               <li>Excel via maatwebsite/excel; consistent columns and date formatting.</li>
             </ul>
-            <h4 className="font-medium">Challenge 3: Push notifications (FCM)</h4>
+            <h4 className="font-medium">3) Push notifications (FCM)</h4>
             <ul className="list-disc pl-6 space-y-1">
               <li>Initialize Firebase, request permission, get token, store to user.fcm-token.store.</li>
               <li>Associate token to user; refresh handling; send via Kreait on server.</li>
+            </ul>
+          </section>
+
+          <section className="mt-4 space-y-2">
+            <h3 className="text-lg font-semibold">Results</h3>
+            <ul className="list-disc pl-6 space-y-1">
+              <li>Proactive communication to students without polling.</li>
+              <li>Increased engagement and on-time returns.</li>
             </ul>
           </section>
         </article>
