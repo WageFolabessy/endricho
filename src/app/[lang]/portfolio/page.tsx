@@ -109,13 +109,21 @@ export default async function PortfolioENPage({ params }: { params: Params }) {
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Portfolio</h1>
-          <p className="text-gray-900">
-            Primary goal: convince recruiters and technical managers that I am the right candidate by demonstrating my skills through real project case studies. Minimal, clean, and professional design so the focus stays on the substance.
-          </p>
+          <div className="flex items-start gap-4">
+            <img
+              src="/images/gasnative.png"
+              alt="GAS Native"
+              className="w-16 h-16 rounded-md object-contain ring-1 ring-gray-200 bg-white"
+            />
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome to GAS Native!</h1>
+              <p className="text-gray-900">
+                GAS Native is an organization founded by Endricho as a center for innovation and collaboration in software development. We focus on storing, managing, and documenting repositories that are being developed, produced, or deployed. Through GAS Native, every project can grow in a structured, integrated, and easily accessible environment for the team.
+              </p>
+            </div>
+          </div>
         </div>
       </header>
-
       <main className="max-w-4xl mx-auto px-4 py-8 space-y-10">
         {/* User Frontend */}
         <article className="bg-white rounded-lg p-6 shadow-sm text-gray-900 space-y-4">

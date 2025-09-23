@@ -109,10 +109,19 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Portofolio</h1>
-          <p className="text-gray-900">
-            Tujuan Utama: Meyakinkan perekrut dan manajer teknis bahwa saya adalah kandidat yang tepat dengan membuktikan keahlian melalui studi kasus proyek nyata. Desain minimalis, bersih, dan profesional agar fokus tetap pada substansi teknis.
-          </p>
+          <div className="flex items-start gap-4">
+            <img
+              src="/images/gasnative.png"
+              alt="GAS Native"
+              className="w-16 h-16 rounded-md object-contain ring-1 ring-gray-200 bg-white"
+            />
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Selamat datang di GAS Native!</h1>
+              <p className="text-gray-900">
+                GAS Native merupakan organisasi yang didirikan oleh Endricho sebagai pusat inovasi dan kolaborasi dalam pengembangan perangkat lunak. Kami berfokus pada penyimpanan, pengelolaan, serta dokumentasi repository yang sedang maupun telah diproduksi atau dideploy. Melalui GAS Native, setiap proyek dapat tumbuh secara terstruktur, terintegrasi, dan mudah diakses oleh tim.
+              </p>
+            </div>
+          </div>
         </div>
       </header>
 
