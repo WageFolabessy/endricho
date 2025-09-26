@@ -67,15 +67,17 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
             title={`Buka demo: ${d}`}
             className="group relative block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           >
-            <Image
-              src={thumbFor(d)}
-              alt={`Pratinjau demo: ${d}`}
-              width={1280}
-              height={720}
-              loading="lazy"
-              sizes="(min-width: 1024px) 640px, 100vw"
-              className="w-full object-cover bg-gray-100 transition-transform duration-300 group-hover:scale-105"
-            />
+            {/* Thumbnail now fills the card width */}
+            <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
+              <Image
+                src={thumbFor(d)}
+                alt={`Pratinjau demo: ${d}`}
+                fill
+                loading="lazy"
+                sizes="(min-width: 1536px) 33vw, (min-width: 1280px) 50vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover bg-gray-100 transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-3 flex items-center justify-between gap-2">
               <span className="px-2 py-1 rounded bg-black/60 text-white text-xs font-medium backdrop-blur-sm">
