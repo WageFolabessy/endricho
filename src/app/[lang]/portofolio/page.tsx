@@ -4,7 +4,7 @@ import { projects } from "@/data/projects";
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 
-type Params = Promise<{ lang: string }>;
+type Params = { lang: string };
 
 const THUM_TOKENS: Record<string, string> = {
   "ocs.efolabessy.app": "75236-1758615824516-c70fa315a2659b2bc9520f3cdc368228",
@@ -12,14 +12,18 @@ const THUM_TOKENS: Record<string, string> = {
   "lis.efolabessy.app": "75236-1758616198483-facf89098ac438d06ee8c5b7c7bd278b",
   "admin.ocs.efolabessy.app": "75236-1758616243962-e8f815c9c59f650d97aa8538148813d7",
 };
+const THUM_WIDTH = 1600;
+const THUM_HEIGHT = 900;
 
 function thumbFor(href: string) {
   try {
     const u = new URL(href);
     const token = THUM_TOKENS[u.hostname];
-    if (token) return `https://image.thum.io/get/auth/${token}/${href}`;
+    if (token) {
+      return `https://image.thum.io/get/auth/${token}/viewport/${THUM_WIDTH}x${THUM_HEIGHT}/width/${THUM_WIDTH}/crop/${THUM_HEIGHT}/noanimate/${href}`;
+    }
   } catch {}
-  return `https://image.thum.io/get/auth/${THUM_TOKENS["ocs.efolabessy.app"]}/${href}`;
+  return `https://image.thum.io/get/auth/${THUM_TOKENS["ocs.efolabessy.app"]}/viewport/${THUM_WIDTH}x${THUM_HEIGHT}/width/${THUM_WIDTH}/crop/${THUM_HEIGHT}/noanimate/${href}`;
 }
 
 function hostOf(href: string) {
@@ -45,8 +49,9 @@ function findByIdTitle(idTitle: string) {
   return p;
 }
 
-export default async function PortfolioIDPage({ params }: { params: Params }) {
-  await params; // lang is not needed here (static copy only)
+export default async function PortfolioIDPage({ params }: { params: Promise<Params> }) {
+  const { lang } = await params
+
   const admin = findByIdTitle("Toko Online Admin Panel");
   const user = findByIdTitle("Toko Online");
   const church = findByIdTitle("Sistem Informasi Gereja");
@@ -67,7 +72,6 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
             title={`Buka demo: ${d}`}
             className="group relative block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           >
-            {/* Thumbnail now fills the card width */}
             <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
               <Image
                 src={thumbFor(d)}
@@ -394,7 +398,7 @@ export default async function PortfolioIDPage({ params }: { params: Params }) {
 
         <div className="text-center">
           <Link
-            href="/id"
+            href={`/${lang}`}
             className="inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-blue-700 ring-1 ring-blue-200 hover:bg-blue-50 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           >
             Kembali ke Beranda

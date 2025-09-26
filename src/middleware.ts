@@ -44,11 +44,18 @@ export function middleware(request: NextRequest) {
   const first = pathSegments[1];
 
   if (locales.includes(first as Locale)) {
+    if (pathname !== `/${first}` && pathname.endsWith("/")) {
+      const url = new URL(request.url);
+      url.pathname = pathname.replace(/\/+$/, "");
+      return NextResponse.redirect(url, 308);
+    }
     return;
   }
 
   const preferred = getPreferredLocale(request.headers.get("accept-language"));
-  const url = new URL(`/${preferred}${pathname}`, request.url);
+  const normalizedPath = pathname === "/" ? "" : pathname.replace(/\/+$/, "");
+  const url = new URL(request.url);
+  url.pathname = `/${preferred}${normalizedPath}`;
   return NextResponse.redirect(url, 308);
 }
 

@@ -6,18 +6,23 @@ import { locales, Locale } from "@/i18n/config";
 
 function switchPath(pathname: string, target: Locale) {
   const parts = pathname.split("/");
-  // Ensure leading slash => parts[0] === ""
   if (locales.includes(parts[1] as Locale)) {
     parts[1] = target;
-    // Localize known slugs per language
     if (parts[2]) {
-      // portfolio slug mapping: id ⇄ en
       if (target === "id" && parts[2] === "portfolio") parts[2] = "portofolio";
       if (target === "en" && parts[2] === "portofolio") parts[2] = "portfolio";
     }
-    return parts.join("/") || `/${target}`;
+    let nextPath = parts.join("/") || `/${target}`;
+    if (nextPath !== `/${target}` && nextPath.endsWith("/")) {
+      nextPath = nextPath.replace(/\/+$/, "");
+    }
+    return nextPath;
   }
-  return `/${target}${pathname}`;
+  let nextPath = `/${target}${pathname}`;
+  if (nextPath !== `/${target}` && nextPath.endsWith("/")) {
+    nextPath = nextPath.replace(/\/+$/, "");
+  }
+  return nextPath;
 }
 
 export default function LocaleSwitcher() {

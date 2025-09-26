@@ -10,7 +10,7 @@ export default async function PrintCVPage({
 }: {
   params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params; // await params
+  const { lang } = await params;
   const lc = (locales as readonly string[]).includes(lang) ? (lang as Locale) : defaultLocale;
   const t = await getDictionary(lc);
 

@@ -124,6 +124,11 @@ After deploy:
 ## Images & Performance
 
 - Next/Image remote patterns allow optimized external thumbnails (image.thum.io): [next.config.ts](next.config.ts)
+- Thumbnails use thum.io viewport + width + crop to enforce a wide 16:9 capture:
+  - Options: /viewport/1600x900/width/1600/crop/900/noanimate
+  - Adjust THUM_WIDTH/THUM_HEIGHT in:
+    - EN: [src/app/[lang]/portfolio/page.tsx](src/app/%5Blang%5D/portfolio/page.tsx)
+    - ID: [src/app/[lang]/portofolio/page.tsx](src/app/%5Blang%5D/portofolio/page.tsx)
 - Thumbnail URL generation per demo domain:
   - EN: [src/app/[lang]/portfolio/page.tsx](src/app/%5Blang%5D/portfolio/page.tsx)
   - ID: [src/app/[lang]/portofolio/page.tsx](src/app/%5Blang%5D/portofolio/page.tsx)
@@ -133,3 +138,10 @@ After deploy:
 - Next.js 15.5.3, React 19.1.0
 - Tailwind CSS v4
 - TypeScript
+
+## URL Policy (Trailing Slash)
+
+- trailingSlash: false (tanpa trailing slash).
+- Middleware menambahkan prefix locale tanpa trailing slash (contoh: "/" → "/id").
+- Jika URL sudah berprefix locale namun berakhiran "/", akan dinormalisasi ke versi tanpa "/" (contoh: "/id/portfolio/" → "/id/portfolio").
+- Canonical/hreflang/sitemap konsisten tanpa trailing slash.
