@@ -10,9 +10,26 @@ function getPreferredLocale(acceptLang: string | null): Locale {
 }
 
 export function middleware(request: NextRequest) {
+  const canonicalHost = process.env.CANONICAL_HOST ?? "efolabessy.app";
+  const currentHost = request.headers.get("host") ?? "";
+  const proto = request.headers.get("x-forwarded-proto") ?? "https";
+
+  if (process.env.NODE_ENV === "production") {
+    if (proto !== "https") {
+      const httpsUrl = new URL(request.url);
+      httpsUrl.protocol = "https:";
+      return NextResponse.redirect(httpsUrl, 308);
+    }
+    if (currentHost !== canonicalHost) {
+      const hostUrl = new URL(request.url);
+      hostUrl.protocol = "https:";
+      hostUrl.host = canonicalHost;
+      return NextResponse.redirect(hostUrl, 308);
+    }
+  }
+
   const { pathname } = request.nextUrl;
 
-  // Ignore Next internals and static assets
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
@@ -32,7 +49,7 @@ export function middleware(request: NextRequest) {
 
   const preferred = getPreferredLocale(request.headers.get("accept-language"));
   const url = new URL(`/${preferred}${pathname}`, request.url);
-  return NextResponse.redirect(url);
+  return NextResponse.redirect(url, 308);
 }
 
 export const config = {
