@@ -45,11 +45,22 @@ const en = {
     educationTitle: "Education",
     degree: "Bachelor of Computer Science",
     institution: "STMIK Pontianak",
-    focus:
-      "Focused on web application development and information systems",
+    focus: "Focused on web application development and information systems",
     gpaLabel: "GPA:",
     gpaValue: "3.41",
     printSectionTitle: "Print CV",
+
+    freelanceTitle: "Freelance Web Developer",
+    freelanceCompany: "Self-employed",
+    freelanceDates: "2023 – Present",
+    freelanceBullet1:
+      "<strong>Analyzed requirements</strong> and <strong>designed</strong> web application solutions tailored to individual client needs.",
+    freelanceBullet2:
+      "Developed applications across <strong>database design</strong>, <strong>front‑end</strong>, and <strong>back‑end</strong> layers.",
+    freelanceBullet3:
+      "Handled <strong>deployment</strong> and <strong>maintenance</strong> to ensure stable systems aligned with client expectations.",
+    freelanceBullet4:
+      "Delivered multiple web projects, including <strong>information systems</strong> and <strong>e‑commerce</strong>.",
   },
 };
 export default en;

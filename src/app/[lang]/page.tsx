@@ -7,9 +7,13 @@ import JsonLd from "@/components/JsonLd";
 
 export default async function Home({
   params,
-}: { params: Promise<{ lang: string }> }) {
+}: {
+  params: Promise<{ lang: string }>;
+}) {
   const { lang } = await params;
-  const lc = (locales as readonly string[]).includes(lang) ? (lang as Locale) : defaultLocale;
+  const lc = (locales as readonly string[]).includes(lang)
+    ? (lang as Locale)
+    : defaultLocale;
   const t = await getDictionary(lc);
   const siteUrl = process.env.SITE_URL ?? "https://efolabessy.app";
   const pageUrl = `${siteUrl}/${lc}`;
@@ -62,20 +66,22 @@ export default async function Home({
                 richofolabessy@gmail.com
               </a>
               <a
-                href="tel:+6285845214967"
+                href="https://wa.me/6285752993224"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-blue-600 transition-colors"
                 title={t.common.phoneLabel}
               >
-                +6285845214967
+                6285752993224
               </a>
               <a
-                href="https://maps.google.com/?q=Pontianak, Kalimantan Barat, Indonesia"
+                href="https://maps.google.com/?q=Pontianak, Kalimantan West, Indonesia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-600 transition-colors"
                 title={t.common.locationLabel}
               >
-                Pontianak, Kalimantan Barat, Indonesia
+                Pontianak, Kalimantan West, Indonesia
               </a>
             </div>
 
@@ -178,6 +184,39 @@ export default async function Home({
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2 mt-1">•</span>
                     <RichText html={t.home.bullet3} />
+                  </li>
+                </ul>
+              </div>
+
+              {/* Pengalaman Freelance */}
+              <div>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {t.home.freelanceTitle}
+                  </h3>
+                  <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded mt-1 sm:mt-0">
+                    {t.home.freelanceDates}
+                  </span>
+                </div>
+                <p className="text-blue-600 font-medium mb-4">
+                  {t.home.freelanceCompany}
+                </p>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2 mt-1">•</span>
+                    <RichText html={t.home.freelanceBullet1} />
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2 mt-1">•</span>
+                    <RichText html={t.home.freelanceBullet2} />
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2 mt-1">•</span>
+                    <RichText html={t.home.freelanceBullet3} />
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2 mt-1">•</span>
+                    <RichText html={t.home.freelanceBullet4} />
                   </li>
                 </ul>
               </div>

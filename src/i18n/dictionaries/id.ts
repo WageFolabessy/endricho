@@ -49,6 +49,18 @@ const id = {
     gpaLabel: "IPK:",
     gpaValue: "3.41",
     printSectionTitle: "Cetak CV",
+
+    freelanceTitle: "Freelance Web Developer",
+    freelanceCompany: "Self-employed",
+    freelanceDates: "2023 – Sekarang",
+    freelanceBullet1:
+      "<strong>Menganalisis kebutuhan</strong> dan <strong>merancang solusi</strong> aplikasi website sesuai permintaan klien individu.",
+    freelanceBullet2:
+      "Mengembangkan aplikasi pada <strong>perancangan database</strong>, <strong>front‑end</strong>, dan <strong>back‑end</strong>.",
+    freelanceBullet3:
+      "<strong>Deployment</strong> dan <strong>pemeliharaan</strong> untuk memastikan sistem stabil dan sesuai ekspektasi klien.",
+    freelanceBullet4:
+      "Menyelesaikan berbagai proyek website, termasuk <strong>sistem informasi</strong> dan <strong>e‑commerce</strong>.",
   },
 };
 export default id;

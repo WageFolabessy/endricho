@@ -11,7 +11,9 @@ export default async function PrintCVPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const lc = (locales as readonly string[]).includes(lang) ? (lang as Locale) : defaultLocale;
+  const lc = (locales as readonly string[]).includes(lang)
+    ? (lang as Locale)
+    : defaultLocale;
   const t = await getDictionary(lc);
 
   return (
@@ -33,12 +35,20 @@ export default async function PrintCVPage({
           <h1 className="text-2xl font-bold mb-0.5">{t.common.name}</h1>
           <p className="text-[12.5px] text-gray-700">{t.common.role}</p>
           <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 justify-center text-[12.5px] text-gray-700">
-            <a href="mailto:richofolabessy@gmail.com" title="Email" className="underline">
+            <a
+              href="mailto:richofolabessy@gmail.com"
+              title="Email"
+              className="underline"
+            >
               richofolabessy@gmail.com
             </a>
             <span className="text-gray-400">|</span>
-            <a href="tel:+6285845214967" title="Telepon" className="underline">
-              +62 858-4521-4967
+            <a
+              href="https://wa.me/6285752993224"
+              title="Telepon"
+              className="underline"
+            >
+              6285752993224
             </a>
             <span className="text-gray-400">|</span>
             <a
@@ -48,7 +58,7 @@ export default async function PrintCVPage({
               className="underline"
               title={t.common.locationLabel}
             >
-              Pontianak, Kalimantan Barat, Indonesia
+              Pontianak, Kalimantan West, Indonesia
             </a>
           </div>
           <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 justify-center text-[12.5px] text-gray-700">
@@ -109,7 +119,9 @@ export default async function PrintCVPage({
           </h2>
           <div className="space-y-0.5 text-gray-800">
             <p>
-              <span className="font-semibold">{t.home.programmingLanguagesLabel}</span>{" "}
+              <span className="font-semibold">
+                {t.home.programmingLanguagesLabel}
+              </span>{" "}
               {t.home.programmingLanguages}
             </p>
             <p>
@@ -128,15 +140,51 @@ export default async function PrintCVPage({
           <h2 className="text-xl font-bold border-b border-gray-300 pb-1 mb-3">
             {t.home.workExpTitle}
           </h2>
+
+          {/* Asisten Lab */}
           <div className="mb-4">
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
-              <h3 className="text-lg font-semibold">{t.home.jobTitle} — {t.home.company}</h3>
+              <h3 className="text-lg font-semibold">
+                {t.home.jobTitle} — {t.home.company}
+              </h3>
               <span className="text-sm text-gray-700">{t.home.dates}</span>
             </div>
-            <ul className="list-disc pl-5 mt-1.5 space-y-0.5 text-gray-800">
-              <li><RichText html={t.home.bullet1} /></li>
-              <li><RichText html={t.home.bullet2} /></li>
-              <li><RichText html={t.home.bullet3} /></li>
+            <ul className="list-disc pl-5 text-gray-800 leading-snug mt-1.5">
+              <li>
+                <RichText html={t.home.bullet1} />
+              </li>
+              <li>
+                <RichText html={t.home.bullet2} />
+              </li>
+              <li>
+                <RichText html={t.home.bullet3} />
+              </li>
+            </ul>
+          </div>
+
+          {/* Freelance Web Developer */}
+          <div className="mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+              <h3 className="text-lg font-semibold">
+                {t.home.freelanceTitle} — {t.home.freelanceCompany}
+              </h3>
+              <span className="text-sm text-gray-700">
+                {t.home.freelanceDates}
+              </span>
+            </div>
+            <ul className="list-disc pl-5 text-gray-800 leading-snug mt-1.5">
+              <li>
+                <RichText html={t.home.freelanceBullet1} />
+              </li>
+              <li>
+                <RichText html={t.home.freelanceBullet2} />
+              </li>
+              <li>
+                <RichText html={t.home.freelanceBullet3} />
+              </li>
+              <li>
+                <RichText html={t.home.freelanceBullet4} />
+              </li>
             </ul>
           </div>
         </section>
@@ -152,7 +200,8 @@ export default async function PrintCVPage({
             </h3>
             <p className="text-gray-800">{t.home.focus}</p>
             <p className="text-gray-800 mt-1">
-              <span className="font-semibold">{t.home.gpaLabel}</span> {t.home.gpaValue}
+              <span className="font-semibold">{t.home.gpaLabel}</span>{" "}
+              {t.home.gpaValue}
             </p>
           </div>
         </section>
